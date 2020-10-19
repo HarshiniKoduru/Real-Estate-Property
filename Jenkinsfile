@@ -3,7 +3,7 @@ node {
     withMaven(maven:'maven') {
 
         stage('Checkout') {
-            git url: 'https://github.com/HarshiniKoduru/microservice-jenkinsn.git', credentialsId: 'harshi17', branch: 'main'        }
+            git url: 'https://github.com/HarshiniKoduru/Real-Estate-Property.git', credentialsId: 'harshi17', branch: 'main'        }
         stage('Build') {
          
 			bat 'mvn clean install'
@@ -18,21 +18,4 @@ node {
     }
 
 	}
-pipeline {
-    agent any
-    
-	stages {
-        stage('Checkout') {
-           steps { 
-				git url: 'https://github.com/HarshiniKoduru/microservice-jenkinsn.git', credentialsId: 'harshi17', branch: 'main'
-		   }
-        }
 
-        stage('Build') {
-			steps {
-				bat 'mvn clean install'
-				
-				}
-			}       
-		}
-	}

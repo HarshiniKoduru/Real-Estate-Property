@@ -7,12 +7,20 @@ node {
         stage('Build') {
          
 			bat 'mvn clean install'
+			
 
             def pom = readMavenPom file:'pom.xml'
             print pom.version
             env.version = pom.version
         }
-        
+        stage('Sonar tests') {
+         
+			bat 'mvn sonar:sonar'
+
+            def pom = readMavenPom file:'pom.xml'
+            print pom.version
+            env.version = pom.version
+        }
            
 
     }
